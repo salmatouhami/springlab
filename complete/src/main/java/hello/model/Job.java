@@ -2,6 +2,9 @@ package hello.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -12,6 +15,7 @@ import java.util.List;
  */
 @Entity
 @Table(name="jobs")
+@JsonIgnoreProperties({"employees","jobHistories"})
 @NamedQuery(name="Job.findAll", query="SELECT j FROM Job j")
 public class Job implements Serializable {
 	private static final long serialVersionUID = 1L;
